@@ -6,7 +6,7 @@ There are 23 labeled training images and one unlabeled test image. The convoluti
 An example of a full-size color input image to the network looks like this:<br>
 <img src="orig_img.png" alt="E-Puck robot in the Webots simulator screen" width="600"/><br>
 <br>
-And a predicted labeled output looks after stitching together the patches looks like this:<br>
+And a predicted labeled output looks like this after stitching together the patches:<br>
 <img src="labeled_img.png" alt="E-Puck robot in the Webots simulator screen" width="600"/><br>
 <br>
 In this labeled map, grey areas are buildings, yellow-gold are roads, dark green spots are trees, light green is farm land, blue is water, and white represents unclassified areas.

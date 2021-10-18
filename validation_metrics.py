@@ -123,13 +123,13 @@ def overall_scores(model, img_list, img_dir, mask_dir, patch_size, overlap):
     # return average metric score for each class
     # use `np.compress()` to return non-zero values only
     # assuming zero value for class means it is not in image
-    for clss in classes:
-        _ = scores.get('IoU')[clss].to_numpy()
-        overall_results['IoU'][clss] = np.mean(np.compress(_ > 0, _))
-        _ = scores.get('Precision')[clss].to_numpy()
-        overall_results['Precision'][clss] = np.mean(np.compress(_ > 0, _))
-        _ = scores.get('Recall')[clss].to_numpy()
-        overall_results['Recall'][clss] = np.mean(np.compress(_ > 0, _))
+    for cl in classes:
+        _ = scores.get('IoU')[cl].to_numpy()
+        overall_results['IoU'][cl] = np.mean(np.compress(_ > 0, _))
+        _ = scores.get('Precision')[cl].to_numpy()
+        overall_results['Precision'][cl] = np.mean(np.compress(_ > 0, _))
+        _ = scores.get('Recall')[cl].to_numpy()
+        overall_results['Recall'][cl] = np.mean(np.compress(_ > 0, _))
         
     return overall_results
 

@@ -124,12 +124,12 @@ def overall_scores(model, img_list, img_dir, mask_dir, patch_size, overlap):
     # use `np.compress()` to return non-zero values only
     # assuming zero value for class means it is not in image
     for cl in classes:
-        _ = scores.get('IoU')[cl].to_numpy()
-        overall_results['IoU'][cl] = np.mean(np.compress(_ > 0, _))
-        _ = scores.get('Precision')[cl].to_numpy()
-        overall_results['Precision'][cl] = np.mean(np.compress(_ > 0, _))
-        _ = scores.get('Recall')[cl].to_numpy()
-        overall_results['Recall'][cl] = np.mean(np.compress(_ > 0, _))
+        iou = scores.get('IoU')[cl].to_numpy()
+        overall_results['IoU'][cl] = np.mean(np.compress(iou > 0, iou))
+        prc = scores.get('Precision')[cl].to_numpy()
+        overall_results['Precision'][cl] = np.mean(np.compress(prc > 0, prc))
+        rcl = scores.get('Recall')[cl].to_numpy()
+        overall_results['Recall'][cl] = np.mean(np.compress(rcl > 0, rcl))
         
     return overall_results
 
